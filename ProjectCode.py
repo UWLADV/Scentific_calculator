@@ -36,7 +36,7 @@ class Calculator:
     def clear_memory(self):
         self.recall = ""
 
-   
+    
 
     def memory_add(self):
         self.recall = self.recall + '+' + self.expression
@@ -49,7 +49,6 @@ class Calculator:
         self.input_text.set(self.expression)
 
     
-
     def memory_recall(self):
         if self.expression == "":
             self.input_text.set('0' + self.expression + self.recall)
@@ -58,6 +57,17 @@ class Calculator:
         
     
     def __init__(self, master):
+
+        
+        self.expression = ""
+        
+        self.recall = ""
+        
+        self.sum_up = ""
+        
+        self.input_text = tk.StringVar()
+        
+        self.master = master
         
         # setting frame for showing inputs and title
         top_frame = tk.Frame(master, width=650, height=20, bd=4, relief='flat', bg='#666666')
@@ -71,7 +81,7 @@ class Calculator:
         my_item.pack()
         # UI for inputs
         display_text = tk.Entry(top_frame, font=('arial', 36), relief='flat',
-                               bg='#666666', fg='Grey', width=60, bd=4, justify='right')
+                               bg='#666666', fg='Grey',textvariable=self.input_text, width=60, bd=4, justify='right')
         display_text.pack()
 
 
@@ -84,7 +94,7 @@ class Calculator:
         
         self.right_brac_button = tk.Button(bottom_frame, **btn_params, text=")", command=lambda: self.btn_click(')'))
         self.right_brac_button.grid(row=0, column=1)
-       
+        
         self.expo_button = tk.Button(bottom_frame, **btn_params, text="exp", command=lambda: self.btn_click('exp('))
         self.expo_button.grid(row=0, column=2)
         
@@ -102,11 +112,13 @@ class Calculator:
         
         self.div_button = tk.Button(bottom_frame, **btn_params, text="/", command=lambda: self.btn_click('/'))
         self.div_button.grid(row=0, column=7)
-      
+        
         self.sqrt_button = tk.Button(bottom_frame, **btn_params, text="sqrt", command=lambda: self.btn_click('sqrt('))
         self.sqrt_button.grid(row=0, column=8)
         # row 1
         
+       
+       
         self.cube = tk.Button(bottom_frame, **btn_params, text=u"x\u00B3", command=lambda: self.btn_click('**3'))
         self.cube.grid(row=1, column=2)
         
@@ -124,7 +136,7 @@ class Calculator:
         self.number_9 = tk.Button(bottom_frame, **btn_params, text="9", command=lambda: self.btn_click(9))
         self.number_9.configure(activebackground="#4d4d4d", bg='#4d4d4d')
         self.number_9.grid(row=1, column=6)
-        
+       
         self.multi_buttton = tk.Button(bottom_frame, **btn_params, text="x", command=lambda: self.btn_click('*'))
         self.multi_buttton.grid(row=1, column=7)
         
@@ -140,14 +152,14 @@ class Calculator:
         
         self.tan_button = tk.Button(bottom_frame, **btn_params, text="tan", command=lambda: self.btn_click('ftan('))
         self.tan_button.grid(row=2, column=2)
-       
+        
         self.btn_log = tk.Button(bottom_frame, **btn_params, text="log", command=lambda: self.btn_click('log('))
         self.btn_log.grid(row=2, column=3)
         
         self.number_4 = tk.Button(bottom_frame, **btn_params, text="4", command=lambda: self.btn_click(4))
         self.number_4.configure(activebackground="#4d4d4d", bg='#4d4d4d')
         self.number_4.grid(row=2, column=4)
-        
+       
         self.number_5 = tk.Button(bottom_frame, **btn_params, text="5", command=lambda: self.btn_click(5))
         self.number_5.configure(activebackground="#4d4d4d", bg='#4d4d4d')
         self.number_5.grid(row=2, column=5)
@@ -185,7 +197,7 @@ class Calculator:
         self.btn_2 = tk.Button(bottom_frame, **btn_params, text="2", command=lambda: self.btn_click(2))
         self.btn_2.configure(activebackground="#4d4d4d", bg='#4d4d4d')
         self.btn_2.grid(row=3, column=5)
-       
+        
         self.btn_3 = tk.Button(bottom_frame, **btn_params, text="3", command=lambda: self.btn_click(3))
         self.btn_3.configure(activebackground="#4d4d4d", bg='#4d4d4d')
         self.btn_3.grid(row=3, column=6)
@@ -223,6 +235,15 @@ class Calculator:
         
         self.btn_comma = tk.Button(bottom_frame, **btn_params, text=",", command=lambda: self.btn_click(','))
         self.btn_comma.grid(row=4, column=8)
+
+
+    def btn_click(self, expression_val):
+        if len(self.expression) >= 23:
+            self.expression = self.expression
+            self.input_text.set(self.expression)
+        else:
+            self.expression = self.expression + str(expression_val)
+            self.input_text.set(self.expression)
 
 
 
