@@ -228,7 +228,7 @@ class Calculator:
         self.number_0.grid(row=4, column=4, columnspan=2)
         
         self.equals_button = tk.Button(bottom_frame, **btn_params, text="=", command=self.equal_button)
-        self.equals_button.configure(bg='#999999', activebackground='#ff9980')
+        self.equals_button.configure(bg='#999999', activebackground='#ff8980')
         self.equals_button.grid(row=4, column=6)
        
         self.decimal_button = tk.Button(bottom_frame, **btn_params, text=".", command=lambda: self.btn_click('.'))
@@ -236,8 +236,6 @@ class Calculator:
         
         self.btn_comma = tk.Button(bottom_frame, **btn_params, text=",", command=lambda: self.btn_click(','))
         self.btn_comma.grid(row=4, column=8)
-        
-        
 
 
     def btn_click(self, expression_val):
