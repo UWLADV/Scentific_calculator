@@ -6,13 +6,13 @@ btn_params = {
     'padx': 16,
     'pady': 1,
     'bd': 4,
-    'fg': 'white',
-    'bg': '#666666',
-    'font': ('arial', 18),
+    'fg': 'black',
+    'bg': '#888888',
+    'font': ('arial', 15),
     'width': 2,
     'height': 2,
     'relief': 'flat',
-    'activebackground': "#666666"
+    'activebackground': "#888888"
 }
 
 
@@ -49,6 +49,7 @@ class Calculator:
         self.input_text.set(self.expression)
 
     
+
     def memory_recall(self):
         if self.expression == "":
             self.input_text.set('0' + self.expression + self.recall)
@@ -70,18 +71,18 @@ class Calculator:
         self.master = master
         
         # setting frame for showing inputs and title
-        top_frame = tk.Frame(master, width=650, height=20, bd=4, relief='flat', bg='#666666')
+        top_frame = tk.Frame(master, width=650, height=20, bd=4, relief='flat', bg='#888888')
         top_frame.pack(side=tk.TOP)
         # setting frame for showing all buttons
-        bottom_frame = tk.Frame(master, width=650, height=470, bd=4, relief='flat', bg='#666666')
+        bottom_frame = tk.Frame(master, width=650, height=470, bd=4, relief='flat', bg='#888888')
         bottom_frame.pack(side=tk.BOTTOM)
         # name of calculator
         my_item = tk.Label(top_frame, text="Simple Scientific Calculator",
-                           font=('arial', 14), fg='Grey', width=26, bg='#555555')
+                           font=('arial', 13,'bold italic'), fg='Black', width=26, bg='#555555')
         my_item.pack()
         # UI for inputs
-        display_text = tk.Entry(top_frame, font=('arial', 36), relief='flat',
-                               bg='#666666', fg='Grey',textvariable=self.input_text, width=60, bd=4, justify='right')
+        display_text = tk.Entry(top_frame, font=('arial', 36,'bold'), relief='flat',
+                               bg='#999999', fg='black',textvariable=self.input_text, width=60, bd=4, justify='right')
         display_text.pack()
 
 
@@ -97,7 +98,7 @@ class Calculator:
         
         self.expo_button = tk.Button(bottom_frame, **btn_params, text="exp", command=lambda: self.btn_click('exp('))
         self.expo_button.grid(row=0, column=2)
-        
+    
         self.pi_button = tk.Button(bottom_frame, **btn_params, text="π", command=lambda: self.btn_click('pi'))
         self.pi_button.grid(row=0, column=3)
         
@@ -118,25 +119,25 @@ class Calculator:
         # row 1
         
        
-       
+        
         self.cube = tk.Button(bottom_frame, **btn_params, text=u"x\u00B3", command=lambda: self.btn_click('**3'))
         self.cube.grid(row=1, column=2)
         
         self.btn_abs = tk.Button(bottom_frame, **btn_params, text="abs", command=lambda: self.btn_click('abs' + '('))
         self.btn_abs.grid(row=1, column=3)
-        
+    
         self.number_7 = tk.Button(bottom_frame, **btn_params, text="7", command=lambda: self.btn_click(7))
-        self.number_7.configure(activebackground="#4d4d4d", bg='#4d4d4d')
+        self.number_7.configure(activebackground="#5d5d5d", bg='#5d5d5d')
         self.number_7.grid(row=1, column=4)
         
         self.number_8 = tk.Button(bottom_frame, **btn_params, text="8", command=lambda: self.btn_click(8))
-        self.number_8.configure(activebackground="#4d4d4d", bg='#4d4d4d')
+        self.number_8.configure(activebackground="#5d5d5d", bg='#5d5d5d')
         self.number_8.grid(row=1, column=5)
         
         self.number_9 = tk.Button(bottom_frame, **btn_params, text="9", command=lambda: self.btn_click(9))
-        self.number_9.configure(activebackground="#4d4d4d", bg='#4d4d4d')
+        self.number_9.configure(activebackground="#5d5d5d", bg='#5d5d5d')
         self.number_9.grid(row=1, column=6)
-       
+        
         self.multi_buttton = tk.Button(bottom_frame, **btn_params, text="x", command=lambda: self.btn_click('*'))
         self.multi_buttton.grid(row=1, column=7)
         
@@ -157,15 +158,15 @@ class Calculator:
         self.btn_log.grid(row=2, column=3)
         
         self.number_4 = tk.Button(bottom_frame, **btn_params, text="4", command=lambda: self.btn_click(4))
-        self.number_4.configure(activebackground="#4d4d4d", bg='#4d4d4d')
+        self.number_4.configure(activebackground="#5d5d5d", bg='#5d5d5d')
         self.number_4.grid(row=2, column=4)
-       
+        
         self.number_5 = tk.Button(bottom_frame, **btn_params, text="5", command=lambda: self.btn_click(5))
-        self.number_5.configure(activebackground="#4d4d4d", bg='#4d4d4d')
+        self.number_5.configure(activebackground="#5d5d5d", bg='#5d5d5d')
         self.number_5.grid(row=2, column=5)
         
         self.number_6 = tk.Button(bottom_frame, **btn_params, text="6", command=lambda: self.btn_click(6))
-        self.number_6.configure(activebackground="#4d4d4d", bg='#4d4d4d')
+        self.number_6.configure(activebackground="#5d5d5d", bg='#5d5d5d')
         self.number_6.grid(row=2, column=6)
         
         self.sub_button = tk.Button(bottom_frame, **btn_params, text="-", command=lambda: self.btn_click('-'))
@@ -180,7 +181,7 @@ class Calculator:
         self.sin_inverse_button.grid(row=3, column=0)
         
         self.cos_inverse_button = tk.Button(bottom_frame, **btn_params, text=u"cos-\u00B9",
-                                         command=lambda: self.btn_click('arccos('))
+                                         command=lambda: self.btn_click('arcos('))
         self.cos_inverse_button.grid(row=3, column=1)
         
         self.tan_inverse_button = tk.Button(bottom_frame, **btn_params, text=u"tan-\u00B9",
@@ -191,15 +192,15 @@ class Calculator:
         self.btn_ln.grid(row=3, column=3)
         
         self.number_1 = tk.Button(bottom_frame, **btn_params, text="1", command=lambda: self.btn_click(1))
-        self.number_1.configure(activebackground="#4d4d4d", bg='#4d4d4d')
+        self.number_1.configure(activebackground="#5d5d5d", bg='#5d5d5d')
         self.number_1.grid(row=3, column=4)
         
         self.btn_2 = tk.Button(bottom_frame, **btn_params, text="2", command=lambda: self.btn_click(2))
-        self.btn_2.configure(activebackground="#4d4d4d", bg='#4d4d4d')
+        self.btn_2.configure(activebackground="#5d5d5d", bg='#5d5d5d')
         self.btn_2.grid(row=3, column=5)
         
         self.btn_3 = tk.Button(bottom_frame, **btn_params, text="3", command=lambda: self.btn_click(3))
-        self.btn_3.configure(activebackground="#4d4d4d", bg='#4d4d4d')
+        self.btn_3.configure(activebackground="#5d5d5d", bg='#5d5d5d')
         self.btn_3.grid(row=3, column=6)
         
         self.btn_add = tk.Button(bottom_frame, **btn_params, text="+", command=lambda: self.btn_click('+'))
@@ -223,13 +224,13 @@ class Calculator:
         self.btn_ans.grid(row=4, column=3)
         
         self.number_0 = tk.Button(bottom_frame, **btn_params, text="0", command=lambda: self.btn_click(0))
-        self.number_0.configure(activebackground="#4d4d4d", bg='#4d4d4d', width=7, bd=5)
+        self.number_0.configure(activebackground="#5d5d5d", bg='#5d5d5d', width=7, bd=5)
         self.number_0.grid(row=4, column=4, columnspan=2)
         
         self.equals_button = tk.Button(bottom_frame, **btn_params, text="=", command=self.equal_button)
-        self.equals_button.configure(bg='#ff9980', activebackground='#ff9980')
+        self.equals_button.configure(bg='#999999', activebackground='#ff9980')
         self.equals_button.grid(row=4, column=6)
-        
+       
         self.decimal_button = tk.Button(bottom_frame, **btn_params, text=".", command=lambda: self.btn_click('.'))
         self.decimal_button.grid(row=4, column=7)
         
