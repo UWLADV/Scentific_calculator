@@ -177,15 +177,15 @@ class Calculator:
         # row 3
         
         self.sin_inverse_button = tk.Button(bottom_frame, **btn_params, text=u"sin-\u00B9",
-                                         command=lambda: self.btn_click('arcsin('))
+                                         command=lambda: self.btn_click('asin('))
         self.sin_inverse_button.grid(row=3, column=0)
         
         self.cos_inverse_button = tk.Button(bottom_frame, **btn_params, text=u"cos-\u00B9",
-                                         command=lambda: self.btn_click('arcos('))
+                                         command=lambda: self.btn_click('acos('))
         self.cos_inverse_button.grid(row=3, column=1)
         
         self.tan_inverse_button = tk.Button(bottom_frame, **btn_params, text=u"tan-\u00B9",
-                                         command=lambda: self.btn_click('arctan('))
+                                         command=lambda: self.btn_click('atan('))
         self.tan_inverse_button.grid(row=3, column=2)
         
         self.btn_ln = tk.Button(bottom_frame, **btn_params, text="ln", command=lambda: self.btn_click('log1p('))
@@ -236,8 +236,6 @@ class Calculator:
         
         self.btn_comma = tk.Button(bottom_frame, **btn_params, text=",", command=lambda: self.btn_click(','))
         self.btn_comma.grid(row=4, column=8)
-        
-        
 
 
     def btn_click(self, expression_val):
@@ -262,6 +260,6 @@ root = tk.Tk()
 b = Calculator(root)
 root.title("Simple Scientific Calculator")
 root.geometry("750x590+50+50")
-root.resizable(False, False)
+root.resizable(True,True)
 root.mainloop()
 
